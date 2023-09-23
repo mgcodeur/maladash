@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "build:scss": "sass assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
     "watch:scss": "sass --watch assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
