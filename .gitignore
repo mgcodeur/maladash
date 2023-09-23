@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# lock file
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE files
+.idea
+.vscode
+*.sublime-workspace
+

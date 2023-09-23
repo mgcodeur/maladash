@@ -1,0 +1,18 @@
+@import 'variables';
+
+@import 'libs/bootstrap/bootstrap.scss';
+
+@import 'global';
+
+/**
+* Components
+*   *- dashboard:
+*        *- shared:
+*            *- navbar
+*            *- footer
+*            *- sidebar
+*   *- icons:
+*        *- tabler-icon
+*/
+@import 'components/dashboard/shared/navbar';
+@import 'components/icons/tabler-icon-svg';
