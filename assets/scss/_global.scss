@@ -2,7 +2,7 @@
     font-size: 13.5px;
     min-height: 100%;
     height: auto;
-    --#{$prefix}transition-base: $transition-base;
+    --#{$prefix}transition-base: #{$transition-base};
     --#{$prefix}sidebar-compacted-width: #{$sidebar-compacted-width};
     --#{$prefix}sidebar-width: #{$sidebar-width};
     --#{$prefix}navbar-height: #{$navbar-height};

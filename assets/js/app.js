@@ -1,3 +1,4 @@
 import SidebarToggler from './components/SidebarToggler';
 
-SidebarToggler.bind('sidebar-toggler', 'app-wrapper');
+SidebarToggler.listenAllSidebarToggler('sidebar-toggler', 'app-wrapper');
+SidebarToggler.listenAllSidebarCloser('sidebar-closer');
