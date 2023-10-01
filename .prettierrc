@@ -12,6 +12,13 @@
                 "singleQuote": true,
                 "parser": "scss"
             }
+        },
+        {
+            "files": "*.js",
+            "options": {
+                "singleQuote": true,
+                "parser": "babel"
+            }
         }
     ]
 }

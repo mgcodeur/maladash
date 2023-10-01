@@ -2,17 +2,19 @@
 
 @import 'libs/bootstrap/bootstrap.scss';
 
+/* css properties */
+@import 'properties/background';
+@import 'properties/border-radius';
+
 @import 'global';
 
-/**
-* Components
-*   *- dashboard:
-*        *- shared:
-*            *- navbar
-*            *- footer
-*            *- sidebar
-*   *- icons:
-*        *- tabler-icon
-*/
-@import 'components/dashboard/shared/navbar';
+/* components */
+@import 'components/dashboard';
+@import 'components/shared/navbar';
+@import 'components/shared/sidebar';
+
+@import 'components/elements/card';
+@import 'components/elements/dropdown';
+@import 'components/elements/table';
+
 @import 'components/icons/tabler-icon-svg';

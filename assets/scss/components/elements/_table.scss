@@ -1,0 +1,38 @@
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+.table {
+    --#{$prefix}table-head-bg: #f9fbfd;
+    --#{$prefix}table-border-color: var(--#{$prefix}gray-200);
+    --#{$prefix}table-min-width: 100px;
+    --#{$prefix}table-default-alignement: middle;
+
+    margin: 0;
+    width: 100%;
+
+    thead {
+        background-color: var(--#{$prefix}table-head-bg);
+    }
+
+    thead th {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--#{$prefix}secondary);
+    }
+
+    tbody td {
+        font-size: 0.9rem;
+    }
+
+    & > :not(caption) > * > * {
+        padding: 1rem;
+    }
+
+    th,
+    td {
+        vertical-align: var(--#{$prefix}table-default-alignement);
+        min-width: var(--#{$prefix}table-min-width);
+    }
+}

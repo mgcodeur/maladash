@@ -1,5 +1,17 @@
 /* global variables */
 $body-bg: #eef1f9;
+$variable-prefix: 'x-';
+$border-radius-base: 0.25rem;
 
 /* fonts */
 $font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* properties */
+$border-radius: 0.25rem;
+
+/* components dimensions */
+$navbar-height: 70px;
+$sidebar-compacted-width: 70px;
+$sidebar-width: 250px;
+
+/* colors */

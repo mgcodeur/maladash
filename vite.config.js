@@ -5,7 +5,7 @@ export default defineConfig({
     appType: 'iife',
     build: {
         lib: {
-            entry: resolve(__dirname, 'assets/js/main.js'),
+            entry: resolve(__dirname, 'assets/js/app.js'),
             name: 'App',
             fileName: () => 'app.min.js'
         },

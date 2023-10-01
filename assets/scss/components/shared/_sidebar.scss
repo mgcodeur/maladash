@@ -1,0 +1,224 @@
+.sidebar,
+.sidebar .logo,
+.sidebar .sidebar-navigation {
+    width: var(--#{$prefix}sidebar-width);
+}
+
+.compact-sidebar .sidebar,
+.compact-sidebar .sidebar .logo,
+.compact-sidebar .sidebar .sidebar-navigation {
+    width: var(--#{$prefix}sidebar-compacted-width);
+}
+
+.sidebar {
+    --#{$prefix}sidebar-logo-height: #{$navbar-height};
+    --#{$prefix}sidebar-bg: var(--#{$prefix}white);
+    --#{$prefix}sidebar-navigation-padding-y: 0.5rem;
+    --#{$prefix}sidebar-navigation-padding-x: 1rem;
+    --#{$prefix}sidebar-link-color: var(--#{$prefix}gray-600);
+    --#{$prefix}sidebar-link-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    --#{$prefix}sidebar-link-padding-x: 0.8rem;
+    --#{$prefix}sidebar-link-padding-y: 1.1rem;
+    min-height: 100vh;
+    height: auto;
+
+    a {
+        display: inline-block;
+        color: var(--#{$prefix}sidebar-link-color);
+        text-decoration: none;
+        padding: var(--#{$prefix}sidebar-link-padding-y) var(--#{$prefix}sidebar-link-padding-x);
+        width: 100%;
+        border-radius: var(--#{$prefix}border-radius-base);
+    }
+
+    &,
+    .logo {
+        background-color: var(--#{$prefix}sidebar-bg);
+        z-index: calc(var(--#{$prefix}z-index-fixed) + 1);
+    }
+
+    .logo-compact {
+        display: none;
+    }
+
+    .logo-large {
+        display: flex;
+    }
+
+    .logo {
+        position: fixed;
+        height: var(--#{$prefix}sidebar-logo-height);
+    }
+
+    .logo,
+    .logo-large {
+        display: flex;
+    }
+
+    .logo,
+    .logo-large,
+    .logo-compact {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar-navigation {
+        margin-top: var(--#{$prefix}sidebar-logo-height);
+        padding: var(--#{$prefix}sidebar-navigation-padding-y) var(--#{$prefix}sidebar-navigation-padding-x);
+    }
+
+    .sidebar-item {
+        position: relative;
+    }
+
+    .sidebar-navigation .menu .sidebar-item:hover .sidebar-link {
+        background-color: var(--#{$prefix}body-bg);
+    }
+
+    .sidebar-navigation .menu .sidebar-item.active .sidebar-link {
+        background-color: var(--#{$prefix}primary);
+        color: var(--#{$prefix}white);
+    }
+
+    .sidebar-submenu {
+        height: 0;
+        visibility: hidden;
+        font-size: 0.95rem;
+    }
+
+    .sidebar-submenu .tabler-icon svg {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+
+.compact-sidebar {
+    .sidebar .logo-large {
+        display: none;
+    }
+
+    .sidebar .logo-compact {
+        display: flex;
+    }
+
+    .sidebar-navigation {
+        .sidebar-link {
+            position: relative;
+        }
+
+        @media (min-width: #{map-get($grid-breakpoints, 'md')}) {
+            .sidebar-submenu {
+                visibility: hidden;
+                height: 0;
+
+                li a {
+                    padding-left: 1rem;
+                }
+
+                li:hover a {
+                    background-color: var(--#{$prefix}gray-100);
+                }
+            }
+
+            .menu .sidebar-item:not(.has-submenu):hover .sidebar-link,
+            .menu .sidebar-item:not(.has-submenu) .sidebar-link span {
+                box-shadow: var(--#{$prefix}sidebar-link-box-shadow);
+            }
+
+            .menu .sidebar-link span {
+                display: none;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+            }
+
+            .menu .sidebar-link span,
+            .sidebar-submenu {
+                left: calc(100% - 2px);
+                // padding-left: 1.8rem;
+                background-color: var(--#{$prefix}body-bg);
+                min-width: 200px;
+                max-width: 200px;
+            }
+
+            .sidebar-submenu {
+                min-width: calc(200px - (var(--#{$prefix}sidebar-navigation-padding-x) + 2px));
+                max-width: calc(200px - (var(--#{$prefix}sidebar-navigation-padding-x) + 2px));
+            }
+
+            .menu .sidebar-item.active .sidebar-link span {
+                background: var(--#{$prefix}primary);
+            }
+
+            .menu .sidebar-item:hover .sidebar-link span {
+                display: flex;
+                align-items: center;
+                margin-left: 0 !important;
+                padding-left: 1rem;
+                padding-right: var(--#{$prefix}sidebar-navigation-padding-x);
+                border-top-right-radius: var(--#{$prefix}border-radius-base);
+            }
+
+            .sidebar-item:hover .sidebar-submenu {
+                height: auto;
+                visibility: visible;
+                position: absolute;
+                top: 100%;
+                left: calc(100% + var(--#{$prefix}sidebar-navigation-padding-x));
+                background-color: var(--#{$prefix}sidebar-bg);
+                border-bottom-right-radius: var(--#{$prefix}border-radius-base);
+                box-shadow: var(--#{$prefix}sidebar-link-box-shadow);
+            }
+
+            .sidebar-submenu a {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, 'lg') - 1}) {
+    .app-wrapper:not(.compact-sidebar) .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        transform: translateX(-100%);
+    }
+
+    .app-wrapper:not(.compact-sidebar).open-sidebar .sidebar {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, 'md') - 1}) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        transform: translateX(-100%);
+    }
+
+    .open-sidebar .sidebar {
+        transform: translateX(0);
+    }
+
+    .compact-sidebar .sidebar,
+    .compact-sidebar .sidebar .logo,
+    .compact-sidebar .sidebar .sidebar-navigation {
+        width: var(--#{$prefix}sidebar-width);
+    }
+
+    .logo-compact,
+    .compact-sidebar .sidebar .logo-compact {
+        display: none;
+    }
+
+    .logo-large,
+    .compact-sidebar .sidebar .logo-large {
+        display: flex;
+    }
+
+    .compact-sidebar .sidebar-link span {
+        display: inline-block;
+    }
+}

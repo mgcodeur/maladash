@@ -1,0 +1,15 @@
+.dropdown {
+    --#{$prefix}dropdown-menu-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+    .dropdown-menu {
+        --#{$prefix}dropdown-item-padding-x: 1.25rem;
+        --#{$prefix}dropdown-item-padding-y: 0.7rem;
+
+        border: unset;
+        box-shadow: var(--#{$prefix}dropdown-menu-shadow);
+    }
+
+    .dropdown-item {
+        padding: var(--#{$prefix}dropdown-item-padding-y) var(--#{$prefix}dropdown-item-padding-x);
+    }
+}

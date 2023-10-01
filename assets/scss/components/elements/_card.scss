@@ -1,0 +1,26 @@
+.card {
+    --#{$prefix}card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --#{$prefix}card-border: none;
+    border: var(--#{$prefix}card-border);
+    box-shadow: var(--#{$prefix}card-box-shadow);
+    --#{$prefix}card-border-color: var(--#{$prefix}gray-200);
+
+    &.card-table .card-body {
+        padding: 0;
+    }
+
+    &.card-table {
+        box-shadow: unset;
+    }
+
+    .card-header {
+        --#{$prefix}card-top-cap-bg: var(--#{$prefix}-card-bg);
+        --#{$prefix}card-cap-padding-y: 1rem;
+        --#{$prefix}card-cap-padding-x: 1.25rem;
+        background-color: var(--#{$prefix}card-top-cap-bg);
+        border-bottom: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+        color: var(--#{$prefix}card-cap-color);
+        margin-bottom: 0;
+        padding: var(--#{$prefix}card-cap-padding-y) var(--#{$prefix}card-cap-padding-x);
+    }
+}

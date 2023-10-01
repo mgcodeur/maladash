@@ -5,7 +5,7 @@
     "watch:scss": "sass --watch assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
     "build:js": "vite build",
     "watch:js": "vite build --watch",
-    "prettify": "prettier --write assets/scss/*.scss --ignore-path .gitignore",
+    "prettify": "prettier --write assets/scss/*.scss assets/scss/*/*/* assets/js/* --ignore-path .gitignore",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "build": "npm run prettify && npm run build:scss && npm run build:js"
   },
