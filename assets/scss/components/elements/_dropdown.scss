@@ -4,6 +4,10 @@
     .dropdown-menu {
         --#{$prefix}dropdown-item-padding-x: 1.25rem;
         --#{$prefix}dropdown-item-padding-y: 0.7rem;
+        --#{$prefix}dropdown-bg: var(--#{$prefix}mode-accent);
+        --#{$prefix}dropdown-link-color: var(--#{$prefix}mode-body-color);
+        --#{$prefix}dropdown-link-hover-color: var(--#{$prefix}mode-body-color);
+        --#{$prefix}dropdown-link-hover-bg: var(--#{$prefix}mode-bg);
 
         border: unset;
         box-shadow: var(--#{$prefix}dropdown-menu-shadow);

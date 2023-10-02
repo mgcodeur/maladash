@@ -5,3 +5,7 @@ export const __bsGridBreakpoints = {
     lg: 992,
     xl: 1200,
 };
+
+export const __rootElement = document.documentElement;
+
+export const __systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';

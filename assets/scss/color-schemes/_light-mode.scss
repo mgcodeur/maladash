@@ -1,0 +1,13 @@
+&.light-mode {
+    $current-mode-bg: #eef1f9;
+    
+    --#{$prefix}mode-bg: #{$current-mode-bg};
+    --#{$prefix}mode-bg-hovered: var(--#{$prefix}gray-100);
+    --#{$prefix}mode-accent: #ffffff;
+
+    --#{$prefix}mode-border: var(--#{$prefix}gray-200);
+    
+    --#{$prefix}mode-body-color: #747474;
+
+    @import './added-colors';
+}

@@ -1,0 +1,17 @@
+$added-colors: (
+    'mode': $current-mode-bg
+);
+
+/* create button for custom added color */
+@each $color, $value in $added-colors {
+    .btn-#{$color} {
+        @include button-variant(
+            $value,
+            $value,
+            $hover-background: shade-color($value, $btn-hover-bg-shade-amount),
+            $hover-border: shade-color($value, $btn-hover-border-shade-amount),
+            $active-background: shade-color($value, $btn-active-bg-shade-amount),
+            $active-border: shade-color($value, $btn-active-border-shade-amount)
+        );
+    }
+}

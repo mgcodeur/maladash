@@ -1,9 +1,9 @@
 .dashboard-navigation {
     --#{$prefix}navbar-padding-x: 0;
     --#{$prefix}navbar-padding-y: 0.5rem;
-    --#{$prefix}nav-link-color: #747474;
-    --#{$prefix}nav-background-color: var(--#{$prefix}white);
-    --#{$prefix}nav-link-hover-color: #000;
+    --#{$prefix}nav-link-color: var(--#{$prefix}mode-body-color);
+    --#{$prefix}nav-background-color: var(--#{$prefix}mode-accent);
+    --#{$prefix}nav-link-hover-color: var(--#{$prefix}mode-body-color);
     --#{$prefix}nav-link-padding-x: 0.9375rem;
     --#{$prefix}nav-link-padding-y: 0.9375rem;
     --#{$prefix}nav-icon-size: 1.5em;

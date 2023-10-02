@@ -4,10 +4,12 @@
 }
 
 .table {
-    --#{$prefix}table-head-bg: #f9fbfd;
+    --#{$prefix}table-head-bg: var(--#{$prefix}mode-accent);
     --#{$prefix}table-border-color: var(--#{$prefix}gray-200);
     --#{$prefix}table-min-width: 100px;
     --#{$prefix}table-default-alignement: middle;
+    --#{$prefix}table-border-color: var(--#{$prefix}mode-border);
+    --#{$prefix}table-color: var(--#{$prefix}mode-body-color);
 
     margin: 0;
     width: 100%;
@@ -19,7 +21,7 @@
     thead th {
         text-transform: uppercase;
         font-size: 0.8rem;
-        color: var(--#{$prefix}secondary);
+        color: var(--#{$prefix}table-color);
     }
 
     tbody td {
@@ -34,5 +36,9 @@
     td {
         vertical-align: var(--#{$prefix}table-default-alignement);
         min-width: var(--#{$prefix}table-min-width);
+    }
+
+    tr:last-child td {
+        border-bottom: unset;
     }
 }

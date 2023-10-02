@@ -1,9 +1,10 @@
 .card {
     --#{$prefix}card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     --#{$prefix}card-border: none;
+    --#{$prefix}card-bg: var(--#{$prefix}mode-accent);
     border: var(--#{$prefix}card-border);
     box-shadow: var(--#{$prefix}card-box-shadow);
-    --#{$prefix}card-border-color: var(--#{$prefix}gray-200);
+    --#{$prefix}card-border-color: var(--#{$prefix}mode-border);
 
     &.card-table .card-body {
         padding: 0;

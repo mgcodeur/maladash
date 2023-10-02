@@ -8,10 +8,17 @@
     --#{$prefix}navbar-height: #{$navbar-height};
     --#{$prefix}z-index-fixed: #{$zindex-fixed};
     --#{$prefix}border-radius-base: #{$border-radius-base};
+
+    @import './color-schemes/light-mode';
+    @import './color-schemes/dark-mode';
+
+    --#{$prefix}body-bg: var(--#{$prefix}mode-bg);
 }
 
 body {
     font-size: 1rem;
     min-height: inherit;
     height: inherit;
+    background-color: var(--#{$prefix}mode-bg);
+    color: var(--#{$prefix}mode-body-color);
 }
