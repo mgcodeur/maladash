@@ -1,7 +1,7 @@
 ## Theme mode
-- [ ] Dark mode
-- [ ] Light mode
-- [ ] Auto detect mode
+- [x] Dark mode
+- [x] Light mode
+- [x] Auto detect mode
 - [ ] Sepia mode
 
 ## Authentication pages
