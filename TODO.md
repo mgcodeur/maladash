@@ -13,8 +13,9 @@
 
 ## Ui kit
 - [ ] Buttons
-- [ ] Cards
-- [ ] Tables
+- [x] Default Cards
+- [x] Default table
+- [ ] Datatable
 - [ ] Forms
 - [ ] Tabs
 - [ ] Modals
