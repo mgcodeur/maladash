@@ -8,8 +8,7 @@ export default class ThemeModeToggler {
      * @param {HTMLElement} switcher
      */
     constructor(switcher) {
-        if(!switcher)
-        {
+        if (!switcher) {
             return false;
         }
         this.#switcher = switcher;

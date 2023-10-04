@@ -1,46 +1,44 @@
+import { __bsGridBreakpoints } from "../_variables";
 
 export default class SidebarNestedMenu {
     #menu;
-    
+
     /**
-     * 
-     * @param {HTMLElement} menu 
+     *
+     * @param {HTMLElement} menu
      */
-    constructor(menu)
-    {
+    constructor(menu) {
         this.#menu = menu;
         this.onMenuClick = this.onMenuClick.bind(this);
 
-        this.#menu.addEventListener('click', this.onMenuClick)
+        this.#menu.addEventListener('click', this.onMenuClick);
     }
 
     /**
-     * 
-     * @param {Event} event 
+     *
+     * @param {Event} event
      */
-    onMenuClick(event)
-    {
+    onMenuClick(event) {
         event.preventDefault();
         const __sidebarIsCompact = document.querySelector('.app-wrapper').classList.contains('compact-sidebar');
-
-        if(!__sidebarIsCompact) {
+        const isLowerThanMd = window.innerWidth < __bsGridBreakpoints.md;
+        if (!__sidebarIsCompact || (__sidebarIsCompact && isLowerThanMd)) {
             this.#menu.parentElement.classList.toggle('show');
         }
     }
 
     /**
-     * 
-     * @param {string} selector 
+     *
+     * @param {string} selector
      * @returns {SidebarNestedMenu[HTMLElement]}
      */
-    static bind(selector)
-    {
-        const menus = Array.from(document.querySelectorAll(selector))
+    static bind(selector) {
+        const menus = Array.from(document.querySelectorAll(selector));
 
-        if(!menus.length) {
+        if (!menus.length) {
             return false;
         }
 
-        return menus.map(menu => new SidebarNestedMenu(menu));
+        return menus.map((menu) => new SidebarNestedMenu(menu));
     }
 }
