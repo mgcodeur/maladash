@@ -1,5 +1,5 @@
 {
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "build:scss": "sass assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
     "watch:scss": "sass --watch assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.4.0",
+    "concurrently": "^8.2.1",
     "prettier": "^3.0.3",
     "sass": "^1.68.0",
-    "vite": "^4.4.9",
-    "concurrently": "^8.2.1"
+    "vite": "^4.4.9"
   }
 }
