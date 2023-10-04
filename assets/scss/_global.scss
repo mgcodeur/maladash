@@ -11,6 +11,7 @@
 
     @import './color-schemes/light-mode';
     @import './color-schemes/dark-mode';
+    @import './color-schemes/chocolate-mode';
 
     --#{$prefix}body-bg: var(--#{$prefix}mode-bg);
 }

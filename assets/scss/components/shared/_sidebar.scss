@@ -19,15 +19,9 @@
     --#{$prefix}sidebar-link-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     --#{$prefix}sidebar-link-padding-x: 0.8rem;
     --#{$prefix}sidebar-link-padding-y: 1.1rem;
-    // FIXME: need transition but animation is not cool
-    // --#{$prefix}sidebar-transition: all 0.2s ease-in-out;
 
     min-height: 100vh;
     height: auto;
-
-    // &.animated {
-    //     transition: var(--#{$prefix}sidebar-transition);
-    // }
 
     a {
         display: inline-block;
@@ -76,6 +70,10 @@
 
     .sidebar-item {
         position: relative;
+    }
+
+    .sidebar-navigation .menu .sidebar-item .sidebar-link {    
+        display: flex;
     }
 
     .sidebar-navigation .menu .sidebar-item:hover .sidebar-link {
@@ -182,6 +180,32 @@
                 padding-left: 0;
             }
         }
+    }
+}
+
+.app-wrapper:not(.compact-sidebar)  {
+    .has-submenu .sidebar-link span {
+        display: inline-flex;
+        flex: 1;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .sidebar-submenu {
+        padding-left: .8rem;
+    }
+
+    .sidebar-item.has-submenu.show .sidebar-submenu {
+        visibility: visible;
+        height: auto;
+    }
+    
+    .sidebar-item.has-submenu .chevron {
+        transition: var(--#{$prefix}transition-base);
+    }
+
+    .sidebar-item.has-submenu.show .chevron {
+        transform: rotate(-180deg);    
     }
 }
 

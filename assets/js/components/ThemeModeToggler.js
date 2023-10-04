@@ -8,13 +8,15 @@ export default class ThemeModeToggler {
      * @param {HTMLElement} switcher
      */
     constructor(switcher) {
+        if(!switcher)
+        {
+            return false;
+        }
         this.#switcher = switcher;
         this.onclick = this.onclick.bind(this);
 
-        if (this.#switcher) {
-            this.#switchTo = this.#switcher.getAttribute('data-switch-to');
-            this.#switcher.addEventListener('click', this.onclick);
-        }
+        this.#switchTo = this.#switcher.getAttribute('data-switch-to');
+        this.#switcher.addEventListener('click', this.onclick);
     }
 
     /**

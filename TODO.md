@@ -2,7 +2,7 @@
 - [x] Dark mode
 - [x] Light mode
 - [x] Auto detect mode
-- [ ] Sepia mode
+- [x] chocolate mode
 
 ## Authentication pages
 - [ ] Login
@@ -23,3 +23,6 @@
 ## Components
 - [x] Dashboard Navbar
 - [x] Dashboard Sidebar
+- [x] Fullscreen toggler
+- [x] Submenu Level 1
+- [ ] Nested level (sidebar menu)

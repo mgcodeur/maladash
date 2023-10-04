@@ -11,20 +11,27 @@
     </title>
     <!--/ page title -->
 
-    <!-- init theme mode -->
+    <!-- init mode -->
     <script>
         let currentMode = localStorage.getItem('_mode');
         const rootElement = document.documentElement;
+        const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-        if (!['dark-mode', 'light-mode'].includes(currentMode)) {
-            currentMode = 'dark-mode';
+        const appModes = [
+            'dark-mode', 
+            'light-mode', 
+            'chocolate-mode'
+        ];
+
+        if (!appModes.includes(currentMode)) {
+            currentMode = `${systemMode}-mode`;
             localStorage.setItem('_mode', currentMode)
-            rootElement.classList.remove('dark-mode', 'light-mode');
+            rootElement.removeAttribute('class')
         }
 
         rootElement.classList.add(currentMode);
     </script>
-    <!--/ init theme mode -->
+    <!--/ init mode -->
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +44,7 @@
     <!--/ main style -->
 </head>
 <body>
+    <!-- application wrapper -->
     <div class="d-flex app-wrapper compact-sidebar">
         <!-- sidebar -->
         <div class="sidebar">
@@ -104,13 +112,20 @@
                                     <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2"></path>
                                 </svg>
                             </i>
-                            <span class="ms-2">
+                            <span class="ms-2 justify-content-between align-items-center">
                                 Authentication
+                                <i class="chevron tabler-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M6 9l6 6l6 -6"></path>
+                                    </svg>
+                                </i>
                             </span>
                         </a>
 
                         <!-- Pages submenus -->
                         <ul class="list-unstyled sidebar-submenu">
+                            <!-- sign in -->
                             <li>
                                 <a href="#">
                                     <i class="tabler-icon">
@@ -126,6 +141,9 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--/ sign in -->
+
+                            <!-- sign up -->
                             <li>
                                 <a href="#">
                                     <i class="tabler-icon">
@@ -142,6 +160,9 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--/ sign up -->
+
+                            <!-- change password -->
                             <li>
                                 <a href="#">
                                     <i class="tabler-icon">
@@ -156,6 +177,9 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--/ change password -->
+
+                            <!-- forgot password -->
                             <li>
                                 <a href="#">
                                     <i class="tabler-icon">
@@ -172,6 +196,9 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--/ forgot password -->
+
+                            <!-- one time password -->
                             <li>
                                 <a href="#">
                                     <i class="tabler-icon">
@@ -189,6 +216,7 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--/ one time password -->
                         </ul>
                     </li>
                     <!--/ Pages -->
@@ -262,33 +290,7 @@
                             <!-- navigation left menu -->
                             <ul class="list-unstyled mb-0 d-none d-md-flex">
                                 <li>
-                                    <a href="#" class="nav-link">
-                                        <i class="tabler-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M14 4h6v6h-6z"></path>
-                                                <path d="M4 14h6v6h-6z"></path>
-                                                <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                                                <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                                            </svg>
-                                        </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link">
-                                        <i class="tabler-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
-                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
-                                                <path d="M12 12l0 .01"></path>
-                                                <path d="M3 13a20 20 0 0 0 18 0"></path>
-                                            </svg>
-                                        </i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link">
+                                    <a href="#" class="nav-link fullscreen-toggler">
                                         <i class="tabler-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -363,15 +365,71 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="langSwitcher">
+                                        <!-- english -->
                                         <li>
-                                            <a class="dropdown-item" href="#">English</a>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <i class="d-inline-flex">
+                                                    <?xml version="1.0" encoding="utf-8"?>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48">
+                                                        <path fill="#ECEFF1" d="M1.998 10H45.998V37H1.998z" />
+                                                        <path fill="#F44336" d="M2 10H46V13H2zM2 16H46V19H2zM2 22H46V25H2zM2 28H46V31H2zM2 34H46V37H2z" />
+                                                        <path fill="#3F51B5" d="M2 10H23V25H2z" />
+                                                        <g>
+                                                            <path fill="#FFF" d="M4.25 12L4.713 12.988 5.75 13.146 5 13.916 5.178 15 4.25 14.488 3.322 15 3.5 13.916 2.75 13.146 3.787 12.988zM8.25 12L8.713 12.988 9.75 13.146 9 13.916 9.178 15 8.25 14.488 7.322 15 7.5 13.916 6.75 13.146 7.787 12.988zM12.25 12L12.713 12.988 13.75 13.146 13 13.916 13.178 15 12.25 14.488 11.322 15 11.5 13.916 10.75 13.146 11.787 12.988zM16.25 12L16.713 12.988 17.75 13.146 17 13.916 17.178 15 16.25 14.488 15.322 15 15.5 13.916 14.75 13.146 15.787 12.988zM20 12L20.463 12.988 21.5 13.146 20.75 13.916 20.928 15 20 14.488 19.072 15 19.25 13.916 18.5 13.146 19.537 12.988zM4.25 20L4.713 20.988 5.75 21.146 5 21.916 5.178 23 4.25 22.488 3.322 23 3.5 21.916 2.75 21.146 3.787 20.988zM8.25 20L8.713 20.988 9.75 21.146 9 21.916 9.178 23 8.25 22.488 7.322 23 7.5 21.916 6.75 21.146 7.787 20.988zM12.25 20L12.713 20.988 13.75 21.146 13 21.916 13.178 23 12.25 22.488 11.322 23 11.5 21.916 10.75 21.146 11.787 20.988zM16.25 20L16.713 20.988 17.75 21.146 17 21.916 17.178 23 16.25 22.488 15.322 23 15.5 21.916 14.75 21.146 15.787 20.988zM20 20L20.463 20.988 21.5 21.146 20.75 21.916 20.928 23 20 22.488 19.072 23 19.25 21.916 18.5 21.146 19.537 20.988zM5.25 16L5.713 16.988 6.75 17.146 6 17.916 6.178 19 5.25 18.488 4.322 19 4.5 17.916 3.75 17.146 4.787 16.988zM9.25 16L9.713 16.988 10.75 17.146 10 17.916 10.178 19 9.25 18.488 8.322 19 8.5 17.916 7.75 17.146 8.787 16.988zM13.25 16L13.713 16.988 14.75 17.146 14 17.916 14.178 19 13.25 18.488 12.322 19 12.5 17.916 11.75 17.146 12.787 16.988zM17.25 16L17.713 16.988 18.75 17.146 18 17.916 18.178 19 17.25 18.488 16.322 19 16.5 17.916 15.75 17.146 16.787 16.988zM21 16L21.463 16.988 22.5 17.146 21.75 17.916 21.928 19 21 18.488 20.072 19 20.25 17.916 19.5 17.146 20.537 16.988z" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <span class="ms-1"> English</span>
+                                            </a>
                                         </li>
+                                        <!--/ english -->
+
+                                        <!-- french -->
                                         <li>
-                                            <a class="dropdown-item" href="#">French</a>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <i class="d-inline-flex">
+                                                    <?xml version="1.0" encoding="utf-8"?>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48">
+                                                        <path fill="#ECEFF1" d="M16 9H32V39H16z" />
+                                                        <path fill="#FF3D00" d="M32 9H46V39H32z" />
+                                                        <path fill="#3F51B5" d="M2 9H16V39H2z" />
+                                                    </svg>
+                                                </i>
+                                                <span class="ms-1"> French</span>
+                                            </a>
                                         </li>
+                                        <!--/ french -->
+
+                                        <!-- spanish -->
                                         <li>
-                                            <a class="dropdown-item" href="#">Spanish</a>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <i class="d-inline-flex">
+                                                    <?xml version="1.0" encoding="utf-8"?>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48">
+                                                        <path fill="#DD2C00" d="M2 9H46V39H2z" />
+                                                        <path fill="#FFC107" d="M2 17H46V31H2z" />
+                                                    </svg>
+                                                </i>
+                                                <span class="ms-1"> Spanish</span>
+                                            </a>
                                         </li>
+                                        <!--/ spanish -->
+
+                                        <!-- Malagasy -->
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <i class="d-inline-flex">
+                                                    <?xml version="1.0" encoding="utf-8"?>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="16" height="16">
+                                                        <path fill="#eceff1" d="M2 9H46V39H2z" />
+                                                        <path fill="#2e7d32" d="M17 24H46V39H17z" />
+                                                        <path fill="#f44336" d="M17 9H46V24H17z" />
+                                                    </svg>
+                                                </i>
+                                                <span class="ms-1"> Malagasy</span>
+                                            </a>
+                                        </li>
+                                        <!--/ Malagasy -->
                                     </ul>
                                 </div>
                             </li>
@@ -432,6 +490,20 @@
                                                 </svg>
                                             </i>
                                             Light
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-switch-to="chocolate">
+                                            <i class="tabler-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brush" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M3 21v-4a4 4 0 1 1 4 4h-4"></path>
+                                                    <path d="M21 3a16 16 0 0 0 -12.8 10.2"></path>
+                                                    <path d="M21 3a16 16 0 0 1 -10.2 12.8"></path>
+                                                    <path d="M10.6 9a9 9 0 0 1 4.4 4.4"></path>
+                                                </svg>
+                                            </i>
+                                            Chocolate
                                         </a>
                                     </li>
                                     <li>
@@ -672,21 +744,21 @@
                                         <table class="table text-center table-sm">
                                             <thead>
                                                 <tr>
-                                                <th>
-                                                    #
-                                                </th>
-                                                <th>
-                                                    first name
-                                                </th>
-                                                <th>
-                                                    last name
-                                                </th>
-                                                <th>
-                                                    Email
-                                                </th>
-                                                <th>
-                                                    
-                                                </th>
+                                                    <th>
+                                                        #
+                                                    </th>
+                                                    <th>
+                                                        first name
+                                                    </th>
+                                                    <th>
+                                                        last name
+                                                    </th>
+                                                    <th>
+                                                        Email
+                                                    </th>
+                                                    <th>
+                                                        Actions
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -844,6 +916,7 @@
         </div>
         <!--/ dashboard content -->
     </div>
+    <!--/ application wrapper -->
 
     <!-- libs -->
     <script src="assets/js/libs/bootstrap/bootstrap.bundle.min.js"></script>
