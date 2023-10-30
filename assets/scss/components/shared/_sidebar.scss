@@ -92,6 +92,7 @@
     .sidebar-submenu {
         height: 0;
         visibility: hidden;
+        display: none;
         font-size: 0.95rem;
     }
 
@@ -118,6 +119,7 @@
         @media (min-width: #{map-get($grid-breakpoints, 'md')}) {
             .sidebar-submenu {
                 visibility: hidden;
+                display: none;
                 height: 0;
 
                 li a {
@@ -186,6 +188,7 @@
             .menu .sidebar-item.has-submenu:hover > .sidebar-submenu {
                 height: auto;
                 visibility: visible;
+                display: block;
                 position: absolute;
                 top: 100%;
                 left: calc(100% + var(--#{$prefix}sidebar-navigation-padding-x));
@@ -261,6 +264,7 @@
 
         .sidebar-item.has-submenu.show .sidebar-submenu {
             visibility: visible;
+            display: block;
             height: auto;
         }
 
