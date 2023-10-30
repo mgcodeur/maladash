@@ -1,4 +1,4 @@
-import { __bsGridBreakpoints } from "../_variables";
+import { __bsGridBreakpoints } from '../_variables';
 
 export default class SidebarNestedMenu {
     #menu;
@@ -22,9 +22,26 @@ export default class SidebarNestedMenu {
         event.preventDefault();
         const __sidebarIsCompact = document.querySelector('.app-wrapper').classList.contains('compact-sidebar');
         const isLowerThanMd = window.innerWidth < __bsGridBreakpoints.md;
-        if (!__sidebarIsCompact || (__sidebarIsCompact && isLowerThanMd)) {
-            this.#menu.parentElement.classList.toggle('show');
+        const menu = this.#menu.parentElement;
+        const nestedSubmenus = Array.from(menu.querySelectorAll('.has-submenu'));
+        
+        const needCloseAllSubmenus = nestedSubmenus.length && menu.classList.contains('show');
+
+        if (__sidebarIsCompact && !isLowerThanMd) {
+            return;
         }
+
+        if (needCloseAllSubmenus) {
+            nestedSubmenus.forEach((submenu) => {
+                submenu.classList.remove('show');
+            });
+            menu.classList.remove('show');
+
+            return;
+        }
+
+        menu.classList.toggle('show');
+        return;
     }
 
     /**

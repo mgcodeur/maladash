@@ -25,4 +25,4 @@
 - [x] Dashboard Sidebar
 - [x] Fullscreen toggler
 - [x] Submenu Level 1
-- [ ] Nested level (sidebar menu)
+- [x] Nested level (sidebar menu)

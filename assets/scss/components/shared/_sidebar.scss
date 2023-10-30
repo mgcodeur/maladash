@@ -1,3 +1,4 @@
+//FIXME: DRY
 .sidebar,
 .sidebar .logo,
 .sidebar .sidebar-navigation {
@@ -19,7 +20,6 @@
     --#{$prefix}sidebar-link-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     --#{$prefix}sidebar-link-padding-x: 0.8rem;
     --#{$prefix}sidebar-link-padding-y: 1.1rem;
-
     min-height: 100vh;
     height: auto;
 
@@ -76,11 +76,15 @@
         display: flex;
     }
 
-    .sidebar-navigation .menu .sidebar-item:hover .sidebar-link {
+    .sidebar-navigation > .menu > .sidebar-item.has-submenu:hover > .sidebar-link {
         background-color: var(--#{$prefix}body-bg);
     }
 
-    .sidebar-navigation .menu .sidebar-item.active .sidebar-link {
+    .menu > li.sidebar-item.has-submenu > .sidebar-submenu > li.sidebar-item.has-submenu .sidebar-link:hover {
+        background-color: var(--#{$prefix}body-bg);
+    }
+
+    .sidebar-navigation > .menu > .sidebar-item.active > .sidebar-link {
         background-color: var(--#{$prefix}primary);
         color: var(--#{$prefix}white);
     }
@@ -120,15 +124,16 @@
                     padding-left: 1rem;
                 }
 
-                li:hover a {
+                li:hover > a {
                     // background-color: var(--#{$prefix}gray-100);
                     background-color: var(--#{$prefix}mode-bg-hovered);
                 }
             }
 
-            .menu .sidebar-item:not(.has-submenu):hover .sidebar-link,
+            .menu .sidebar-item:not(.active, .has-submenu):hover .sidebar-link,
             .menu .sidebar-item:not(.has-submenu) .sidebar-link span {
                 box-shadow: var(--#{$prefix}sidebar-link-box-shadow);
+                background-color: var(--#{$prefix}body-bg);
             }
 
             .menu .sidebar-link span {
@@ -138,13 +143,26 @@
                 bottom: 0;
             }
 
-            .menu .sidebar-link span,
-            .sidebar-submenu {
+            .menu > li.sidebar-item.has-submenu > .sidebar-submenu > li.sidebar-item.has-submenu .sidebar-link span {
+                position: static;
+                width: 100%;
+            }
+
+            .menu > .sidebar-item.has-submenu > .sidebar-link > span,
+            .sidebar-submenu,
+            .menu .sidebar-item:not(.has-submenu) .sidebar-link span
+            {
                 left: calc(100% - 2px);
                 // padding-left: 1.8rem;
                 background-color: var(--#{$prefix}body-bg);
                 min-width: 200px;
                 max-width: 200px;
+            }
+            
+
+            .sidebar-item.has-submenu > .menu > li.sidebar-item.has-submenu > .sidebar-link > span {
+                // background:rgba(0, 0, 0, 0.1)  !important;
+                width: 100%;
             }
 
             .sidebar-submenu {
@@ -164,8 +182,8 @@
                 padding-right: var(--#{$prefix}sidebar-navigation-padding-x);
                 border-top-right-radius: var(--#{$prefix}border-radius-base);
             }
-
-            .sidebar-item:hover .sidebar-submenu {
+            
+            .menu .sidebar-item.has-submenu:hover > .sidebar-submenu {
                 height: auto;
                 visibility: visible;
                 position: absolute;
@@ -174,6 +192,11 @@
                 background-color: var(--#{$prefix}sidebar-bg);
                 border-bottom-right-radius: var(--#{$prefix}border-radius-base);
                 box-shadow: var(--#{$prefix}sidebar-link-box-shadow);
+            }
+
+            .menu > .sidebar-item.has-submenu > .sidebar-submenu > li.sidebar-item.has-submenu .sidebar-submenu {
+                top: 0;
+                left: 100%;
             }
 
             .sidebar-submenu a {
@@ -195,16 +218,21 @@
         padding-left: 0.8rem;
     }
 
-    .sidebar-item.has-submenu.show .sidebar-submenu {
+    .menu > .sidebar-item.has-submenu.show > .sidebar-submenu,
+    .menu > .sidebar-item.has-submenu > .sidebar-submenu .sidebar-item.has-submenu.show > .sidebar-submenu {
         visibility: visible;
+        display: block;
         height: auto;
     }
 
-    .sidebar-item.has-submenu .chevron {
+    .menu > .sidebar-item.has-submenu > .sidebar-link > span > .chevron,
+    .menu > .sidebar-item.has-submenu > .sidebar-submenu span .chevron {
         transition: var(--#{$prefix}transition-base);
     }
 
-    .sidebar-item.has-submenu.show .chevron {
+    .menu > .sidebar-item.has-submenu.show > .sidebar-link > span > .chevron,
+    .menu > .sidebar-item.has-submenu > .sidebar-submenu > .sidebar-item.show > .sidebar-link > span .chevron,
+    .menu > .sidebar-item.has-submenu > .sidebar-submenu .sidebar-submenu .sidebar-item.show > .sidebar-link > span .chevron {
         transform: rotate(-180deg);
     }
 }
@@ -223,7 +251,6 @@
 }
 
 @media (max-width: #{map-get($grid-breakpoints, 'md') - 1}) {
-    //FIXME: DRY
     .app-wrapper {
         .has-submenu .sidebar-link span {
             display: inline-flex;

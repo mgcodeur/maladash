@@ -11,6 +11,7 @@
     background-color: var(--#{$prefix}nav-background-color);
     padding: var(--#{$prefix}navbar-padding-y) var(--#{$prefix}navbar-padding-x);
     height: var(--#{$prefix}navbar-height);
+    z-index: 10000;
 
     .nav-link {
         color: var(--#{$prefix}nav-link-color);

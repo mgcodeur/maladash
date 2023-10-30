@@ -1,7 +1,5 @@
 :root {
     font-size: 13.5px;
-    min-height: 100%;
-    height: auto;
     --#{$prefix}transition-base: #{$transition-base};
     --#{$prefix}sidebar-compacted-width: #{$sidebar-compacted-width};
     --#{$prefix}sidebar-width: #{$sidebar-width};
@@ -18,8 +16,7 @@
 
 body {
     font-size: 1rem;
-    min-height: inherit;
-    height: inherit;
     background-color: var(--#{$prefix}mode-bg);
     color: var(--#{$prefix}mode-body-color);
 }
+
