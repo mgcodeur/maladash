@@ -5,16 +5,24 @@
 /* css properties */
 @import 'properties/background';
 @import 'properties/border-radius';
+@import 'properties/box-shadow';
 
 @import 'global';
 
 /* components */
 @import 'components/dashboard';
+
+@import 'components/shared/footer';
 @import 'components/shared/navbar';
 @import 'components/shared/sidebar';
 
 @import 'components/elements/card';
 @import 'components/elements/dropdown';
+@import 'components/elements/form';
 @import 'components/elements/table';
 
 @import 'components/icons/tabler-icon-svg';
+
+
+/* pages */
+@import 'pages/auth';

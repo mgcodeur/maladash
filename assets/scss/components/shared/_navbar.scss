@@ -1,4 +1,7 @@
-.dashboard-navigation {
+/**
+ * DASHBOARD NAVIGATION
+ */
+%navigation-variable {
     --#{$prefix}navbar-padding-x: 0;
     --#{$prefix}navbar-padding-y: 0.5rem;
     --#{$prefix}nav-link-color: var(--#{$prefix}mode-body-color);
@@ -6,7 +9,26 @@
     --#{$prefix}nav-link-hover-color: var(--#{$prefix}mode-body-color);
     --#{$prefix}nav-link-padding-x: 0.9375rem;
     --#{$prefix}nav-link-padding-y: 0.9375rem;
-    --#{$prefix}nav-icon-size: 1.5em;
+    --#{$prefix}nav-icon-size: 1.5rem;
+}
+
+%navigation-dropdown-style {
+    .nav-link .tabler-icon svg,
+    .dropdown .tabler-icon svg {
+        width: var(--#{$prefix}nav-icon-size);
+        height: var(--#{$prefix}nav-icon-size);
+        transition: var(--#{$prefix}transition-base);
+    }
+
+    .dropdown-menu {
+        min-width: 160px;
+        right: 0 !important;
+        left: unset !important;
+    }
+}
+
+.dashboard-navigation {
+    @extend %navigation-variable;
 
     background-color: var(--#{$prefix}nav-background-color);
     padding: var(--#{$prefix}navbar-padding-y) var(--#{$prefix}navbar-padding-x);
@@ -22,18 +44,7 @@
         color: var(--#{$prefix}nav-link-hover-color);
     }
 
-    .nav-link .tabler-icon svg,
-    .dropdown .tabler-icon svg {
-        width: var(--#{$prefix}nav-icon-size);
-        height: var(--#{$prefix}nav-icon-size);
-        transition: var(--#{$prefix}transition-base);
-    }
-
-    .dropdown-menu {
-        min-width: 160px;
-        right: 0 !important;
-        left: unset !important;
-    }
+    @extend %navigation-dropdown-style;
 
     @media (min-width: #{map-get($grid-breakpoints, 'lg')}) {
         left: 0;
@@ -62,3 +73,34 @@
         left: 0;
     }
 }
+
+/**
+ * NAVIGATION
+ */
+
+ .navigation-bar {
+    @extend %navigation-variable;
+    --#{$prefix}nav-icon-size: 1.35rem;
+
+    font-size: 15px;
+    height: 4.101em;
+    background-color: var(--#{$prefix}mode-accent);
+
+    .navigation-menu .navigation-item .navigation-link {
+        padding-left: 0.5625em;
+        padding-right: 0.5625em;
+        text-decoration: none;
+        color: var(--#{$prefix}nav-link-color);
+
+        &:hover {
+            color: var(--#{$prefix}primary);
+        }
+    }
+
+    @extend %navigation-dropdown-style;
+    
+    .tabler-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+ }

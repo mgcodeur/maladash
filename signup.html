@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/favicons/favicon.ico" type="image/x-icon">
+
+    <!-- page title -->
+    <title>
+        Maladash | The ultimate dashboard template for your next project
+    </title>
+    <!--/ page title -->
+
+    <!-- init mode -->
+    <script>
+        let currentMode = localStorage.getItem('_mode');
+        const rootElement = document.documentElement;
+        const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const defaultMode = `${systemMode}-mode`;
+
+        const appModes = [
+            'dark-mode', 
+            'light-mode', 
+            'chocolate-mode'
+        ];
+
+        if (!appModes.includes(currentMode)) {
+            currentMode = defaultMode;
+            localStorage.setItem('_mode', currentMode)
+            rootElement.removeAttribute('class')
+        }
+
+        rootElement.classList.add(currentMode);
+    </script>
+    <!--/ init mode -->
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <!--/ google fonts -->
+
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/dist/css/app.min.css"/>
+    <!--/ main style -->
+</head>
+<body class="auth-section">
+    <!-- header -->
+    <header>
+        <nav class="navigation-bar d-flex align-items-center shadow">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="index.html" class="navigation-brand">
+                        <img src="assets/images/logos/app-logo-large.png" alt="Maladash logo" height="32px">
+                    </a>
+    
+                    <ul class="list-unstyled d-flex align-items-center mb-0 navigation-menu">
+                        <li class="dropdown navigation-item">
+                            <a href="#" class="nav-link p-1" data-bs-toggle="dropdown">
+                                <i class="tabler-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"></path>
+                                        <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                        <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                        <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                    </svg>
+                                </i>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#" data-switch-to="dark">
+                                        <i class="tabler-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                                                <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                                                <path d="M19 11h2m-1 -1v2"></path>
+                                            </svg>
+                                        </i>
+                                        Dark
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" data-switch-to="light">
+                                        <i class="tabler-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                <path d="M12 5l0 -2"></path>
+                                                <path d="M17 7l1.4 -1.4"></path>
+                                                <path d="M19 12l2 0"></path>
+                                                <path d="M17 17l1.4 1.4"></path>
+                                                <path d="M12 19l0 2"></path>
+                                                <path d="M7 17l-1.4 1.4"></path>
+                                                <path d="M6 12l-2 0"></path>
+                                                <path d="M7 7l-1.4 -1.4"></path>
+                                            </svg>
+                                        </i>
+                                        Light
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" data-switch-to="chocolate">
+                                        <i class="tabler-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brush" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M3 21v-4a4 4 0 1 1 4 4h-4"></path>
+                                                <path d="M21 3a16 16 0 0 0 -12.8 10.2"></path>
+                                                <path d="M21 3a16 16 0 0 1 -10.2 12.8"></path>
+                                                <path d="M10.6 9a9 9 0 0 1 4.4 4.4"></path>
+                                            </svg>
+                                        </i>
+                                        Chocolate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" data-switch-to="auto">
+                                        <i class="tabler-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+                                                <path d="M7 20h10"></path>
+                                                <path d="M9 16v4"></path>
+                                                <path d="M15 16v4"></path>
+                                            </svg>
+                                        </i>
+                                        System
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navigation-item ms-3">
+                            <a href="signup.html" class="btn btn-primary px-4">Register</a>
+                        </li>
+                        <li class="ms-1 navigation-item">
+                            <a href="signin.html" class="navigation-link" >Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/ header -->
+
+    <main class="auth-section-bg d-flex align-items-center justify-content-center" style="background-image: url(assets/images/background/auth_background.svg)">
+        <div class="container d-flex justify-content-center">
+            <div class="card card-login">
+                <div class="card-body">
+                    <h5 class="text-center">
+                        Register Now
+                    </h5>
+                    <form>
+                        <div class="form-group mt-4 mb-2">
+                            <input type="text" class="form-control border-radius-0" placeholder="Your name">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="email" class="form-control border-radius-0" placeholder="Your e-mail address">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" class="form-control border-radius-0" placeholder="Your password">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" class="form-control border-radius-0" placeholder="Confirm your password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary w-100 text-white">
+                                Sign In
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-center my-2">
+                        Or
+                    </p>
+                    <button class="auth btn w-100 social-button mb-2">
+                        <i class="tabler-icon thin">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                            </svg>
+                        </i>
+                        Sign in with google
+                    </button>
+                    <button class="auth btn w-100 social-button mb-2">
+                        <i class="tabler-icon thin">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                <path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path>
+                                <path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
+                            </svg>
+                        </i>
+                        Sign in with Linkedin
+                    </button>
+                    <button class="auth btn w-100 social-button">
+                        <i class="tabler-icon thin">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                <path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path>
+                                <path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"></path>
+                            </svg>
+                        </i>
+                        Sign in with Facebook
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-center mt-3">
+                        <span class="me-2">Already have an account ?</span>
+                        <a href="signin.html" class="text-decoration-none">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="default-footer" class="hide-on-medium-screen footer">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <span class="footer-copyright">© 2023 Maladash</span>
+                    <ul class="mb-0 d-flex list-unstyled footer-links align-items-center flex-wrap justify-content-start">
+                        <li>
+                            <a href="#">Privacy policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms and conditions</a>
+                        </li>
+                        <li>
+                            <a href="#">Sitemap</a>
+                        </li>
+                        <li>
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">About Maladash</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-actions">
+                    <a href="#" class="me-3 w-max-content">
+                        <span>
+                            <i class="tabler-icon thin tabler-sz-">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+                                    <path d="M3.6 9h16.8"></path>
+                                    <path d="M3.6 15h16.8"></path>
+                                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                                </svg>
+                            </i>
+                        </span>
+                        <span>
+                            Français (FR)
+                        </span>
+                    </a>
+                    <a href="#" class="w-max-content">
+                        <span>Extras</span>
+                        <span>
+                            <i class="tabler-icon thin tabler-sz-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M6 15l6 -6l6 6"></path>
+                                </svg>
+                            </i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- libs -->
+    <script src="assets/js/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <!--/ libs -->
+
+    <!-- main script -->
+    <script src="assets/dist/js/app.min.js"></script>
+    <!--/ main script -->
+</body> 
+</html> 

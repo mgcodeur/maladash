@@ -1,11 +1,14 @@
 :root {
     font-size: 13.5px;
+    min-height: 100%;
     --#{$prefix}transition-base: #{$transition-base};
     --#{$prefix}sidebar-compacted-width: #{$sidebar-compacted-width};
     --#{$prefix}sidebar-width: #{$sidebar-width};
     --#{$prefix}navbar-height: #{$navbar-height};
+    --#{$prefix}client-navigation-bar-height: 4.101em;
     --#{$prefix}z-index-fixed: #{$zindex-fixed};
     --#{$prefix}border-radius-base: #{$border-radius-base};
+    --#{$prefix}default-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 
     @import './color-schemes/light-mode';
     @import './color-schemes/dark-mode';
@@ -19,4 +22,3 @@ body {
     background-color: var(--#{$prefix}mode-bg);
     color: var(--#{$prefix}mode-body-color);
 }
-

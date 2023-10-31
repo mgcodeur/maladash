@@ -1,0 +1,34 @@
+.card-login {
+    max-width: 500px;
+}
+.auth {
+    &.social-button {    
+        border: 1px solid var(--#{$prefix}mode-border);
+        color: var(--#{$prefix}mode-body-color);
+    }
+    
+    &.social-button:hover {
+        background-color: var(--#{$prefix}mode-bg);
+        border: 1px solid var(--#{$prefix}mode-border)
+    }
+    
+    &.social-button svg {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+.auth-section {
+    min-height: 100vh;
+
+    .auth-section-bg {
+        background-size: contain;
+        height: calc(100vh - var(--#{$prefix}client-navigation-bar-height));
+    }
+
+    @media (min-width: #{map-get($grid-breakpoints, 'md') - 1}) {
+        .auth-section-bg {
+            height: calc(100vh - (var(--#{$prefix}client-navigation-bar-height) * 2));
+        }
+    }
+}

@@ -1,0 +1,16 @@
+%form-global-style {
+    background-color: var(--#{$prefix}mode-input-bg);
+    color: var(--#{$prefix}mode-body-color);
+}
+
+.form-control {
+    @extend %form-global-style;
+    height: 2.9rem;
+    border: 1px solid var(--#{$prefix}mode-border);
+
+    &:focus {
+        @extend %form-global-style;
+        box-shadow: unset;    
+        border: 1px solid var(--#{$prefix}primary);
+    }
+}

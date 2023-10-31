@@ -8,6 +8,7 @@
     --#{$prefix}mode-border: #3d3830;
 
     --#{$prefix}mode-body-color: #e6edf3;
+    --#{$prefix}mode-input-bg: #{$current-mode-bg};
 
     @import './added-colors';
 }
