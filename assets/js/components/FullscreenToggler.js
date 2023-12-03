@@ -28,6 +28,7 @@ export default class FullscreenToggler {
         e.preventDefault();
         e.stopPropagation();
 
+        //TODO: add this in _variables.js
         const __isFullScreen = document.fullscreenElement;
 
         if (!__isFullScreen) {
@@ -42,7 +43,7 @@ export default class FullscreenToggler {
      * @param {string} className
      * @returns {FullscreenToggler[HTMLElement]}
      */
-    static bind(className) {
+    static all(className) {
         const fullscreenTogglers = Array.from(document.querySelectorAll(className));
 
         if (!fullscreenTogglers.length) {

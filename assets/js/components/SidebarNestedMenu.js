@@ -24,7 +24,7 @@ export default class SidebarNestedMenu {
         const isLowerThanMd = window.innerWidth < __bsGridBreakpoints.md;
         const menu = this.#menu.parentElement;
         const nestedSubmenus = Array.from(menu.querySelectorAll('.has-submenu'));
-        
+
         const needCloseAllSubmenus = nestedSubmenus.length && menu.classList.contains('show');
 
         if (__sidebarIsCompact && !isLowerThanMd) {
@@ -49,7 +49,7 @@ export default class SidebarNestedMenu {
      * @param {string} selector
      * @returns {SidebarNestedMenu[HTMLElement]}
      */
-    static bind(selector) {
+    static all(selector) {
         const menus = Array.from(document.querySelectorAll(selector));
 
         if (!menus.length) {

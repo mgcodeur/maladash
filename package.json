@@ -5,7 +5,7 @@
     "watch:scss": "sass --watch assets/scss/app.scss assets/dist/css/app.min.css --style compressed",
     "build:js": "vite build",
     "watch:js": "vite build --watch",
-    "prettify": "prettier --write assets/scss/*.scss assets/scss/*/*/* assets/js/*/* --ignore-path .gitignore",
+    "prettify": "prettier --write assets/scss/*.scss assets/scss/**/* assets/js/**/* --ignore-path .gitignore",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "build": "npm run prettify && npm run build:scss && npm run build:js",
     "watch": "concurrently --kill-others \"npm run watch:scss\" \"npm run watch:js\""
@@ -15,6 +15,7 @@
     "concurrently": "^8.2.1",
     "prettier": "^3.0.3",
     "sass": "^1.68.0",
+    "terser": "^5.24.0",
     "vite": "^4.4.9"
   }
 }

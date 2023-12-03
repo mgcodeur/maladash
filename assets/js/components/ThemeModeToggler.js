@@ -48,7 +48,7 @@ export default class ThemeModeToggler {
      * @param {string} selector
      * @returns {ThemeModeToggler[HTMLElement]}
      */
-    static bind(selector) {
+    static all(selector) {
         const switchers = Array.from(document.querySelectorAll(selector));
 
         if (!switchers.length) {

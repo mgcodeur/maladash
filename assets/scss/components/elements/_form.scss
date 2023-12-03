@@ -10,7 +10,30 @@
 
     &:focus {
         @extend %form-global-style;
-        box-shadow: unset;    
+        box-shadow: unset;
         border: 1px solid var(--#{$prefix}primary);
+    }
+}
+
+.form-group {
+    position: relative;
+
+    .password-eyes {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--#{$prefix}mode-body-color);
+    }
+
+    .password-eyes svg {
+        stroke-width: 1.1px;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }

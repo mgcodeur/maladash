@@ -78,7 +78,7 @@
  * NAVIGATION
  */
 
- .navigation-bar {
+.navigation-bar {
     @extend %navigation-variable;
     --#{$prefix}nav-icon-size: 1.35rem;
 
@@ -98,9 +98,9 @@
     }
 
     @extend %navigation-dropdown-style;
-    
+
     .tabler-icon svg {
         width: 20px;
         height: 20px;
     }
- }
+}

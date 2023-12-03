@@ -1,5 +1,5 @@
 @each $color, $value in $colors {
     .bg-#{$color} {
-        background-color: var(--#{$prefix}#{$color})
+        background-color: var(--#{$prefix}#{$color});
     }
 }

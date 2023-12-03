@@ -1,5 +1,13 @@
 .tabler-icon {
     svg {
-        stroke-width: 1.5;
+        stroke-width: 1;
+    }
+}
+
+.btn {
+    .tabler-icon svg {
+        stroke-width: 1.2;
+        width: 1.25em;
+        height: 1.25em;
     }
 }

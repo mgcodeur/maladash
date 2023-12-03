@@ -84,7 +84,8 @@
         background-color: var(--#{$prefix}body-bg);
     }
 
-    .sidebar-navigation > .menu > .sidebar-item.active > .sidebar-link {
+    .sidebar-navigation > .menu > .sidebar-item.active > .sidebar-link,
+    .sidebar-navigation > .menu > .sidebar-item.has-submenu.active > .sidebar-link {
         background-color: var(--#{$prefix}primary);
         color: var(--#{$prefix}white);
     }
@@ -94,6 +95,28 @@
         visibility: hidden;
         display: none;
         font-size: 0.95rem;
+    }
+
+    .sidebar-submenu li {
+        position: relative;
+    }
+
+    .sidebar-submenu li:not(.has-submenu)::before,
+    .sidebar-submenu li:not(.has-submenu).active::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 60%;
+        background-color: var(--#{$prefix}primary);
+        opacity: 0;
+        transition: var(--#{$prefix}transition-base);
+    }
+
+    .sidebar-submenu li:not(.has-submenu):hover::before,
+    .sidebar-submenu li:not(.has-submenu).active::before {
+        opacity: 1;
     }
 
     .sidebar-submenu .tabler-icon svg {
@@ -109,6 +132,10 @@
 
     .sidebar .logo-compact {
         display: flex;
+    }
+
+    .sidebar-submenu li:not(.has-submenu)::before {
+        left: 0.6rem;
     }
 
     .sidebar-navigation {
@@ -127,7 +154,6 @@
                 }
 
                 li:hover > a {
-                    // background-color: var(--#{$prefix}gray-100);
                     background-color: var(--#{$prefix}mode-bg-hovered);
                 }
             }
@@ -152,28 +178,28 @@
 
             .menu > .sidebar-item.has-submenu > .sidebar-link > span,
             .sidebar-submenu,
-            .menu .sidebar-item:not(.has-submenu) .sidebar-link span
-            {
+            .menu .sidebar-item:not(.has-submenu) .sidebar-link span {
                 left: calc(100% - 2px);
-                // padding-left: 1.8rem;
                 background-color: var(--#{$prefix}body-bg);
                 min-width: 200px;
                 max-width: 200px;
             }
-            
+
+            .menu > .sidebar-item.has-submenu.active > .sidebar-link > span {
+                background-color: var(--#{$prefix}primary);
+            }
+
+            .menu .sidebar-item:not(.has-submenu).active .sidebar-link span {
+                background-color: var(--#{$prefix}primary);
+            }
 
             .sidebar-item.has-submenu > .menu > li.sidebar-item.has-submenu > .sidebar-link > span {
-                // background:rgba(0, 0, 0, 0.1)  !important;
                 width: 100%;
             }
 
             .sidebar-submenu {
                 min-width: calc(200px - (var(--#{$prefix}sidebar-navigation-padding-x) + 2px));
                 max-width: calc(200px - (var(--#{$prefix}sidebar-navigation-padding-x) + 2px));
-            }
-
-            .menu .sidebar-item.active .sidebar-link span {
-                background: var(--#{$prefix}primary);
             }
 
             .menu .sidebar-item:hover .sidebar-link span {
@@ -184,7 +210,7 @@
                 padding-right: var(--#{$prefix}sidebar-navigation-padding-x);
                 border-top-right-radius: var(--#{$prefix}border-radius-base);
             }
-            
+
             .menu .sidebar-item.has-submenu:hover > .sidebar-submenu {
                 height: auto;
                 visibility: visible;
@@ -221,6 +247,10 @@
         padding-left: 0.8rem;
     }
 
+    .menu > .sidebar-item.has-submenu.show {
+        background-color: var(--#{$prefix}mode-bg-hovered);
+    }
+
     .menu > .sidebar-item.has-submenu.show > .sidebar-submenu,
     .menu > .sidebar-item.has-submenu > .sidebar-submenu .sidebar-item.has-submenu.show > .sidebar-submenu {
         visibility: visible;
@@ -235,8 +265,24 @@
 
     .menu > .sidebar-item.has-submenu.show > .sidebar-link > span > .chevron,
     .menu > .sidebar-item.has-submenu > .sidebar-submenu > .sidebar-item.show > .sidebar-link > span .chevron,
-    .menu > .sidebar-item.has-submenu > .sidebar-submenu .sidebar-submenu .sidebar-item.show > .sidebar-link > span .chevron {
+    .menu
+        > .sidebar-item.has-submenu
+        > .sidebar-submenu
+        .sidebar-submenu
+        .sidebar-item.show
+        > .sidebar-link
+        > span
+        .chevron {
         transform: rotate(-180deg);
+    }
+
+    .sidebar-navigation > .menu > .sidebar-item.has-submenu:hover > .sidebar-link,
+    .sidebar-navigation > .menu > .sidebar-item.has-submenu.show > .sidebar-link {
+        background-color: var(--#{$prefix}body-bg);
+    }
+
+    .sidebar-navigation > .menu > .sidebar-item.has-submenu.active > .sidebar-link {
+        background-color: var(--#{$prefix}primary);
     }
 }
 

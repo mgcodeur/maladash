@@ -1,0 +1,7 @@
+$object-fit-values: (contain, cover, fill, none, scale-down);
+
+@each $value in $object-fit-values {
+  .object-fit-#{$value} {
+    object-fit: $value !important;
+  }
+}

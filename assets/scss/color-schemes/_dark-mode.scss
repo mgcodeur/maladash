@@ -1,10 +1,10 @@
 &.dark-mode {
     $current-mode-bg: #0d1117;
-    
-    --#{$prefix}mode-bg: #{$current-mode-bg};    
+
+    --#{$prefix}mode-bg: #{$current-mode-bg};
     --#{$prefix}mode-bg-hovered: var(--#{$prefix}black);
     --#{$prefix}mode-accent: #010409;
-    
+
     --#{$prefix}mode-border: #30363d;
 
     --#{$prefix}mode-body-color: #e6edf3;

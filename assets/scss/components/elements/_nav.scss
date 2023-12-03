@@ -1,0 +1,21 @@
+.nav-tabs {
+    
+    .nav-link {
+        border-top: unset;
+        border-left: unset;
+        border-right: unset;
+        color: var(--#{$prefix}mode-body-color);
+        transition: unset;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+        color: var(--#{$prefix}primary);
+    }
+
+    .nav-link.active {
+        color: var(--#{$prefix}primary);
+        background-color: unset;
+        border-color: var(--#{$prefix}primary);
+    }
+}

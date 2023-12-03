@@ -4,6 +4,7 @@ import { resolve } from 'path'
 export default defineConfig({
     appType: 'iife',
     build: {
+        minify: 'terser',
         lib: {
             entry: resolve(__dirname, 'assets/js/app.js'),
             name: 'App',

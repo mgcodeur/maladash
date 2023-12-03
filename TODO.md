@@ -5,8 +5,8 @@
 - [x] chocolate mode
 
 ## Authentication pages
-- [ ] Login
-- [ ] Register
+- [x] Login
+- [x] Register
 - [ ] Forgot password
 - [ ] Reset password
 - [ ] One time password
@@ -26,3 +26,4 @@
 - [x] Fullscreen toggler
 - [x] Submenu Level 1
 - [x] Nested level (sidebar menu)
+- [ ] Tab

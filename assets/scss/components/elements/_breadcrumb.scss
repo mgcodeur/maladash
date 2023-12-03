@@ -1,0 +1,43 @@
+.breadcrumb {
+    background: transparent;
+    align-items: center;
+    padding: 0;    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-flex;
+        position: relative;
+        padding: 0 0.5rem;
+        align-items: center;
+        color: var(--#{$prefix}mode-body-color);
+    }
+
+    li:after {
+        position: absolute;
+        font-size: 0.625rem;
+        font-weight: 300;
+        content: ">";
+        width: 1px;
+        right: 2px;
+        color: var(--#{$prefix}mode-body-color);
+    }
+
+    li:last-child:after {
+        display: none;
+    }
+
+    li a {
+        color: var(--#{$prefix}mode-body-color);
+        text-decoration: none;
+    }
+
+    li.active a{
+        color: var(--#{$prefix}primary);
+    }
+
+    .tabler-icon svg {
+        width: 1.2rem;
+    }
+}
